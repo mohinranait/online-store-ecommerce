@@ -28,7 +28,7 @@ use App\Http\Controllers\SslCommerzPaymentController;
 |
 */
 
-// Frontend all controller 
+// Frontend all controller list
 Route::get('/' , [frontendController::class , 'homepage'])->name('home');
 Route::get('/shop-two' , [frontendController::class , 'shop2'])->name('shop-two');
 Route::get('/shop' , [frontendController::class , 'shop3'])->name('shop-three');
