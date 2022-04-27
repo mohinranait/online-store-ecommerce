@@ -62,4 +62,6 @@ class Card extends Model
         }
         return $totalPrice;
     }
+
+   
 }

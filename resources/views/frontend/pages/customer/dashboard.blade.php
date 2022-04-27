@@ -4,7 +4,7 @@
 
 @section('content')
 
-<main class="main">
+		<main class="main">
         	<div class="page-header text-center" style="">
         		<div class="container">
         			<h1 class="page-title">My Account<span>{{Auth::user()->name}}</span></h1>
@@ -197,7 +197,7 @@
 																<th>View</th>
 																<th>Address</th>
 																<th>Status</th>
-																<th>Date</th>
+																<th>Invoice</th>
 															</tr>
 															@php $i=1 @endphp
 															@foreach( $orders as $order)
@@ -230,7 +230,7 @@
 																	<span class='badge badge-danger'>Order Cancled</span>
 																	@endif
 																</td>
-																<td>@if( $order->created_at) {{$order->created_at->format('d M, Y')}} @endif</td>
+																<td><a target="_blank" href="{{route('order.invoice' , $order->id)}}">Download Invoice</a></td>
 															</tr>
 															@php $i++ @endphp
 															@endforeach

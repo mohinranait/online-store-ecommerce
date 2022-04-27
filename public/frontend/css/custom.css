@@ -69,3 +69,17 @@ div.product-nav.product-nav-thumbs a{
     min-width: 113px;
 }
 
+li.page-item {
+    background: #E5E5E5;
+    border-radius: 3px;
+    color: white;
+}
+
+li.page-item.active {
+    background: #007BC4;
+    border-radius: 3px;
+    color: white;
+}
+.page-item.active .page-link {
+    color: white;
+}

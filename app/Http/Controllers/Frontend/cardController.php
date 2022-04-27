@@ -56,6 +56,8 @@ class cardController extends Controller
     
                 return redirect()->back();
             }
+        }else{
+            return redirect()->route('login')->with('success','Login First, Then Add to card');
         }
     }
 

@@ -66,7 +66,7 @@
 		                					<div class="col-sm-6">
                                                 @if(Auth::check())
                                                 <label>Division *</label>
-												<select name="division" class='form-control' id="">
+												<select name="division" class='form-control' id="division_id">
 													<option value="">Select Division</option>
 													@foreach($divisions as $division)
 													<option value="{{$division->id}}" @if( $division->id == Auth::user()->division_id) selected @endif>{{$division->name}}</option>
@@ -75,7 +75,7 @@
                                                 
                                                 @else
                                                 <label>Division *</label>
-												<select name="division" class='form-control' id="">
+												<select name="division" class='form-control' id="division_id">
 													<option value="">select Division </option>
 													@foreach($divisions as $division)
 													<option value="{{$division->id}}">{{$division->name}}</option>
@@ -89,20 +89,16 @@
 		                					<div class="col-sm-6">
                                                 @if(Auth::check())
                                                 <label>District *</label>
-												<select name="district" class='form-control' id="">
+												<select name="district" class='form-control' id="districtname">
 													<option value="">Select District</option>
-													@foreach($districts as $district)
-													<option value="{{$district->id}}" @if( $district->id == Auth::user()->destrict_id) selected @endif>{{$district->name}}</option>
-													@endforeach
+													
 												</select>
 		                						
                                                 @else
                                                 <label>District *</label>
-												<select name="district" class='form-control' id="">
+												<select name="district" class='form-control' id="districtname">
 													<option value="">District</option>
-													@foreach($districts as $district)
-													<option value="{{$district->id}}">{{$district->name}}</option>
-													@endforeach
+													
 												</select>
 		                						
                                                 @endif

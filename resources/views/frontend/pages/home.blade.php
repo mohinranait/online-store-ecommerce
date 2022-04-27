@@ -75,6 +75,7 @@
                 <span class="slider-loader"></span><!-- End .slider-loader -->
             </div><!-- End .intro-slider-container -->
 
+            <!-- Categorys -->
             <div class="container">
                 <h2 class="title text-center mb-4">Explore Popular Categories</h2><!-- End .title text-center -->
                 
@@ -232,6 +233,7 @@
                                         @else
                                         <input type="hidden" name='unite_price' value="{{$product->regularprice}}">
                                         @endif
+                                        <input type="hidden" name="product_qty" value="1">
                                         <button type='submit'  class="btn-product btn-cart  " style='border:transparent; width:100%; display:inline-block;background:#0363cd; padding:12px 0 ;font-size:16px;color:white;'>add to cart</button>
                                     </form>
                                         <!-- <a href="#" class="btn-product btn-cart" style='' title="Add to cart">Add to Cart</a> -->
@@ -252,10 +254,14 @@
                                         @endif
                                     </div><!-- End .product-price -->
                                     <div class="ratings-container">
-                                        <div class="ratings">
-                                            <div class="ratings-val" style="width: 80%;"></div><!-- End .ratings-val -->
+                                        <div class="">
+                                            <span style="font-size:17px;color:yellow;">&starf;</span>
+                                            <span style="font-size:17px;color:yellow;">&starf;</span>
+                                            <span style="font-size:17px;color:yellow;">&starf;</span>
+                                            <span style="font-size:17px;color:yellow;">&starf;</span>
+                                            <span style="font-size:17px;color:yellow;">&starf;</span>
                                         </div><!-- End .ratings -->
-                                        <span class="ratings-text">( 12 Reviews )</span>
+                                        <span class="ratings-text">( {{$product->review->count()}} Reviews )</span>
                                     </div><!-- End .rating-container -->
                                 </div><!-- End .product-body -->
                             </div><!-- End .product -->
@@ -316,6 +322,7 @@
                                         @else
                                         <input type="hidden" name='unite_price' value="{{$product->regularprice}}">
                                         @endif
+                                        <input type="hidden" name="product_qty" value="1">
                                         <button type='submit'  class="btn-product btn-cart  " style='border:transparent; width:100%; display:inline-block;background:#0363cd; padding:12px 0 ;font-size:16px;color:white;'>add to cart</button>
                                     </form>
                                         <!-- <a href="#" class="btn-product btn-cart" style='' title="Add to cart">Add to Cart</a> -->
@@ -324,7 +331,7 @@
 
                                 <div class="product-body">
                                     <div class="product-cat">
-                                        <a href="{{route('sub.category', $product->category->slug)}}">Appliances</a>
+                                        <a href="{{route('sub.category', $product->category->slug)}}">{{$product->category->name}}</a>
                                     </div><!-- End .product-cat -->
                                     <h3 class="product-title"><a href="{{route('productdetails', $product->slug)}}">{{substr(strip_tags($product->name), 0, 40)}}</a></h3><!-- End .product-title -->
                                     <div class="product-price " style='color:#0363cd;text-align:center'>
@@ -336,10 +343,14 @@
                                         @endif
                                     </div><!-- End .product-price -->
                                     <div class="ratings-container">
-                                        <div class="ratings">
-                                            <div class="ratings-val" style="width: 80%;"></div><!-- End .ratings-val -->
+                                        <div class="">
+                                            <span style="font-size:17px;color:yellow;">&starf;</span>
+                                            <span style="font-size:17px;color:yellow;">&starf;</span>
+                                            <span style="font-size:17px;color:yellow;">&starf;</span>
+                                            <span style="font-size:17px;color:yellow;">&starf;</span>
+                                            <span style="font-size:17px;color:yellow;">&starf;</span>
                                         </div><!-- End .ratings -->
-                                        <span class="ratings-text">( 12 Reviews )</span>
+                                        <span class="ratings-text">( {{$product->review->count()}} Reviews )</span>
                                     </div><!-- End .rating-container -->
                                 </div><!-- End .product-body -->
                             </div><!-- End .product -->
@@ -374,6 +385,9 @@
                                     }
                                 }
                             }'>
+
+                           
+                           
                             <div class="product">
                                 <figure class="product-media">
                                     <span class="product-label label-top">Top</span>
@@ -396,7 +410,7 @@
                                     <div class="product-cat">
                                         <a href="#">Laptops</a>
                                     </div><!-- End .product-cat -->
-                                    <h3 class="product-title"><a href="product.html">MacBook Pro 13" Display, i5</a></h3><!-- End .product-title -->
+                                    <h3 class="product-title"><a href="product.html">Best Laptops Core i5</a></h3><!-- End .product-title -->
                                     <div class="product-price">
                                         $1,199.00
                                     </div><!-- End .product-price -->
@@ -408,158 +422,9 @@
                                     </div><!-- End .rating-container -->
                                 </div><!-- End .product-body -->
                             </div><!-- End .product -->
+                          
 
-                            <div class="product">
-                                <figure class="product-media">
-                                    <a href="product.html">
-                                        <img src="{{asset('frontend')}}/images/demos/demo-13/products/product-8.jpg" alt="Product image" class="product-image">
-                                    </a>
-
-                                    <div class="product-action-vertical">
-                                        <a href="#" class="btn-product-icon btn-wishlist btn-expandable"><span>add to wishlist</span></a>
-                                        <a href="#" class="btn-product-icon btn-compare" title="Compare"><span>Compare</span></a>
-                                        <a href="popup/quickView.html" class="btn-product-icon btn-quickview" title="Quick view"><span>Quick view</span></a>
-                                    </div><!-- End .product-action-vertical -->
-
-                                    <div class="product-action">
-                                        <a href="#" class="btn-product btn-cart" title="Add to cart"><span>add to cart</span></a>
-                                    </div><!-- End .product-action -->
-                                </figure><!-- End .product-media -->
-
-                                <div class="product-body">
-                                    <div class="product-cat">
-                                        <a href="#">Audio</a>
-                                    </div><!-- End .product-cat -->
-                                    <h3 class="product-title"><a href="product.html">Bose - SoundLink Bluetooth Speaker</a></h3><!-- End .product-title -->
-                                    <div class="product-price">
-                                        $79.99
-                                    </div><!-- End .product-price -->
-                                    <div class="ratings-container">
-                                        <div class="ratings">
-                                            <div class="ratings-val" style="width: 60%;"></div><!-- End .ratings-val -->
-                                        </div><!-- End .ratings -->
-                                        <span class="ratings-text">( 6 Reviews )</span>
-                                    </div><!-- End .rating-container -->
-                                </div><!-- End .product-body -->
-                            </div><!-- End .product -->
-
-                            <div class="product">
-                                <figure class="product-media">
-                                    <span class="product-label label-new">New</span>
-                                    <a href="product.html">
-                                        <img src="{{asset('frontend')}}/images/demos/demo-13/products/product-6.jpg" alt="Product image" class="product-image">
-                                    </a>
-
-                                    <div class="product-action-vertical">
-                                        <a href="#" class="btn-product-icon btn-wishlist btn-expandable"><span>add to wishlist</span></a>
-                                        <a href="#" class="btn-product-icon btn-compare" title="Compare"><span>Compare</span></a>
-                                        <a href="popup/quickView.html" class="btn-product-icon btn-quickview" title="Quick view"><span>Quick view</span></a>
-                                    </div><!-- End .product-action-vertical -->
-
-                                    <div class="product-action">
-                                        <a href="#" class="btn-product btn-cart" title="Add to cart"><span>add to cart</span></a>
-                                    </div><!-- End .product-action -->
-                                </figure><!-- End .product-media -->
-
-                                <div class="product-body">
-                                    <div class="product-cat">
-                                        <a href="#">Appliances</a>
-                                    </div><!-- End .product-cat -->
-                                    <h3 class="product-title"><a href="product.html">Neato Robotics</a></h3><!-- End .product-title -->
-                                    <div class="product-price">
-                                        $399.00
-                                    </div><!-- End .product-price -->
-                                    <div class="ratings-container">
-                                        <div class="ratings">
-                                            <div class="ratings-val" style="width: 80%;"></div><!-- End .ratings-val -->
-                                        </div><!-- End .ratings -->
-                                        <span class="ratings-text">( 12 Reviews )</span>
-                                    </div><!-- End .rating-container -->
-                                </div><!-- End .product-body -->
-                            </div><!-- End .product -->
-
-                            <div class="product">
-                                <figure class="product-media">
-                                    <span class="product-label label-sale">Sale</span>
-                                    <a href="product.html">
-                                        <img src="{{asset('frontend')}}/images/demos/demo-13/products/product-10.jpg" alt="Product image" class="product-image">
-                                    </a>
-
-                                    <div class="product-action-vertical">
-                                        <a href="#" class="btn-product-icon btn-wishlist btn-expandable"><span>add to wishlist</span></a>
-                                        <a href="#" class="btn-product-icon btn-compare" title="Compare"><span>Compare</span></a>
-                                        <a href="popup/quickView.html" class="btn-product-icon btn-quickview" title="Quick view"><span>Quick view</span></a>
-                                    </div><!-- End .product-action-vertical -->
-
-                                    <div class="product-action">
-                                        <a href="#" class="btn-product btn-cart" title="Add to cart"><span>add to cart</span></a>
-                                    </div><!-- End .product-action -->
-                                </figure><!-- End .product-media -->
-
-                                <div class="product-body">
-                                    <div class="product-cat">
-                                        <a href="#">Cell Phone</a>
-                                    </div><!-- End .product-cat -->
-                                    <h3 class="product-title"><a href="product.html">Google - Pixel 3 XL 128GB</a></h3><!-- End .product-title -->
-                                    <div class="product-price">
-                                        $899.99
-                                        <span class="new-price">$350.00</span>
-                                        <span class="old-price">Was $410.00</span>
-                                    </div><!-- End .product-price -->
-                                    <div class="ratings-container">
-                                        <div class="ratings">
-                                            <div class="ratings-val" style="width: 80%;"></div><!-- End .ratings-val -->
-                                        </div><!-- End .ratings -->
-                                        <span class="ratings-text">( 10 Reviews )</span>
-                                    </div><!-- End .rating-container -->
-
-                                    <div class="product-nav product-nav-dots">
-                                        <a href="#" class="active" style="background: #333333;"><span class="sr-only">Color name</span></a>
-                                        <a href="#" style="background: #eaeaec;"><span class="sr-only">Color name</span></a>
-                                    </div><!-- End .product-nav -->
-                                </div><!-- End .product-body -->
-                            </div><!-- End .product -->
-
-                            <div class="product">
-                                <figure class="product-media">
-                                    <span class="product-label label-new">New</span>
-                                    <a href="product.html">
-                                        <img src="{{asset('frontend')}}/images/demos/demo-13/products/product-9.jpg" alt="Product image" class="product-image">
-                                    </a>
-
-                                    <div class="product-action-vertical">
-                                        <a href="#" class="btn-product-icon btn-wishlist btn-expandable"><span>add to wishlist</span></a>
-                                        <a href="#" class="btn-product-icon btn-compare" title="Compare"><span>Compare</span></a>
-                                        <a href="popup/quickView.html" class="btn-product-icon btn-quickview" title="Quick view"><span>Quick view</span></a>
-                                    </div><!-- End .product-action-vertical -->
-
-                                    <div class="product-action">
-                                        <a href="#" class="btn-product btn-cart" title="Add to cart"><span>add to cart</span></a>
-                                    </div><!-- End .product-action -->
-                                </figure><!-- End .product-media -->
-
-                                <div class="product-body">
-                                    <div class="product-cat">
-                                        <a href="#">Tablets</a>
-                                    </div><!-- End .product-cat -->
-                                    <h3 class="product-title"><a href="product.html">Apple - 11 Inch iPad Pro  with Wi-Fi 256GB </a></h3><!-- End .product-title -->
-                                    <div class="product-price">
-                                        $899.99
-                                    </div><!-- End .product-price -->
-                                    <div class="ratings-container">
-                                        <div class="ratings">
-                                            <div class="ratings-val" style="width: 80%;"></div><!-- End .ratings-val -->
-                                        </div><!-- End .ratings -->
-                                        <span class="ratings-text">( 4 Reviews )</span>
-                                    </div><!-- End .rating-container -->
-
-                                    <div class="product-nav product-nav-dots">
-                                        <a href="#" class="active" style="background: #edd2c8;"><span class="sr-only">Color name</span></a>
-                                        <a href="#" style="background: #eaeaec;"><span class="sr-only">Color name</span></a>
-                                        <a href="#" style="background: #333333;"><span class="sr-only">Color name</span></a>
-                                    </div><!-- End .product-nav -->
-                                </div><!-- End .product-body -->
-                            </div><!-- End .product -->
+                            
                         </div><!-- End .owl-carousel -->
                     </div><!-- .End .tab-pane -->
                 </div><!-- End .tab-content -->
@@ -739,7 +604,7 @@
                                                     @else
                                                     <input type="hidden" name='unite_price' value="{{$product->regularprice}}">
                                                     @endif
-
+                                                    <input type="hidden" name="product_qty" value="1">
                                                     <button type="submit" style="border:none;background:transparent;">Add to Card</button>
                                                 </form>
                                             </span>
@@ -750,27 +615,25 @@
 
                                 <div class="product-body">
                                     <div class="product-cat">
-                                        <a href="#">Headphones</a>
+                                        <a href="#">{{$product->category->name}}</a>
                                     </div><!-- End .product-cat -->
                                     <h3 class="product-title"><a href="{{route('productdetails', $product->slug)}}">{{$product->name}}</a></h3><!-- End .product-title -->
                                     <div class="product-price">
-                                        <span class="new-price">$279.99</span>
-                                        <span class="old-price">Was $349.99</span>
+                                        @if(!empty($product->offer_price))
+                                        <span class="new-price"> ৳ {{$product->offer_price}}</span>
+                                        <span class="old-price">Was ৳ {{$product->regularprice}}</span>
+                                        @else
+                                        <span class="new-price">৳ {{$product->regularprice}}</span>
+                                        @endif
                                     </div><!-- End .product-price -->
                                     <div class="ratings-container">
                                         <div class="ratings">
                                             <div class="ratings-val" style="width: 40%;"></div><!-- End .ratings-val -->
                                         </div><!-- End .ratings -->
-                                        <span class="ratings-text">( 4 Reviews )</span>
+                                        <span class="ratings-text">( {{$product->review->count()}} Reviews )</span>
                                     </div><!-- End .rating-container -->
 
-                                    <div class="product-nav product-nav-dots">
-                                        <a href="#" class="active" style="background: #666666;"><span class="sr-only">Color name</span></a>
-                                        <a href="#" style="background: #ff887f;"><span class="sr-only">Color name</span></a>
-                                        <a href="#" style="background: #6699cc;"><span class="sr-only">Color name</span></a>
-                                        <a href="#" style="background: #f3dbc1;"><span class="sr-only">Color name</span></a>
-                                        <a href="#" style="background: #eaeaec;"><span class="sr-only">Color name</span></a>
-                                    </div><!-- End .product-nav -->
+                                    
                                 </div><!-- End .product-body -->
                             </div><!-- End .product -->
                         </div><!-- End .col-sm-6 col-md-4 col-lg-3 -->

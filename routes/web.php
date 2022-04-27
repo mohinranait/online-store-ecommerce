@@ -38,9 +38,13 @@ Route::get('/category-items/{slug}' , [frontendController::class , 'subCategory'
 Route::get('/offer-sell' , [frontendController::class , 'offerSell'])->name('offer.product');
 Route::get('/search' , [frontendController::class , 'search']);
 Route::get('/details/{slug}' , [frontendController::class , 'detailsProduct'])->name('productdetails');
+Route::post('/review' , [frontendController::class, 'reviewStore'])->name('review.store');
 
 // check out page Route 
 Route::get('/checkout' , [frontendController::class , 'checkout'])->name('checkout');
+Route::get('/get-district/{id}' , function($id){
+    return json_encode(App\Models\District::where('division_id' , $id)->get());
+});
 
 // login and register page
 // Route::get('/loginpage' , [frontendController::class,'login'])->name('loginpage');
@@ -49,6 +53,7 @@ Route::get('/checkout' , [frontendController::class , 'checkout'])->name('checko
 Route::group(['prefix' => '/user'],function(){
     Route::get('/dashboard' , [frontUserController::class , 'dashboard'])->name('user.dashboard')->middleware('auth','verified');
     Route::post('/update/{id}' , [frontUserController::class , 'update'])->name('user.dash.update')->middleware('auth','verified');
+    Route::get('/invoice/{id}' , [frontUserController::class , 'invoce'])->name('order.invoice')->middleware('auth','verified');
 });
 
 // Card Route

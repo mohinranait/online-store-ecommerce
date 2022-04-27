@@ -9,8 +9,10 @@ use App\Models\Cuntry;
 use App\Models\Division;
 use App\Models\District;
 use App\Models\Card;
+use App\Models\Reviews;
 use Illuminate\Http\Request;
 use DB;
+use Auth;
 
 class frontendController extends Controller
 {
@@ -20,6 +22,7 @@ class frontendController extends Controller
         $latestProduct = Product::where('status',1)->latest()->get();
         $random = Product::inRandomOrder()->where('status',1)->limit(8)->get();
         $categorys = Category::where('status',1)->where('is_parent',0)->get();
+        
         return view('frontend.pages.home',compact('latestProduct','categorys','random'));
     }
   
@@ -28,7 +31,7 @@ class frontendController extends Controller
     public function shop2()
     {
         $totalProducts = DB::table('products')->count();
-        $products = Product::where('status',1)->limit(9)->latest()->get();
+        $products = Product::where('status',1)->limit(9)->latest()->paginate(6);
         return view('frontend.pages.shop2col',compact('products','totalProducts'));
     }
 
@@ -36,7 +39,7 @@ class frontendController extends Controller
     public function shop3()
     {
         $totalProducts = DB::table('products')->count();
-        $products = Product::where('status',1)->limit(9)->latest()->get();
+        $products = Product::where('status',1)->latest()->paginate(6);
         return view('frontend.pages.shop3col',compact('products','totalProducts'));
     }
 
@@ -44,7 +47,7 @@ class frontendController extends Controller
     public function shop4()
     {
         $totalProducts = DB::table('products')->count();
-        $products = Product::where('status',1)->limit(12)->latest()->get();
+        $products = Product::where('status',1)->limit(12)->latest()->paginate(12);
         return view('frontend.pages.shop4col',compact('products','totalProducts'));
     }
 
@@ -61,7 +64,7 @@ class frontendController extends Controller
         $categorys = Category::where('slug', $slug)->first();
         if( !empty($categorys)){
             $relatedCategory = $categorys->id;
-            $products = Product::where('status',1)->where('cat_id', $relatedCategory)->limit(9)->get();
+            $products = Product::where('status',1)->where('cat_id', $relatedCategory)->paginate(9);
             return view('frontend.pages.sub-category',compact('categorys','products'));
         }else{
             return redirect()->back();
@@ -92,11 +95,29 @@ class frontendController extends Controller
         if( !empty($product)){
             $relatedCategory = $product->cat_id;
             $categorys = Category::where('id', $relatedCategory)->get();
-            
-            return view('frontend.pages.details',compact('product','categorys'));
+            $reviews = Reviews::orderby('id','desc')->where('status',1)->where('product_id',$product->id)->get();
+            $reviewCount = Reviews::where('product_id', $product->id)->where('star',5)->get();
+            return view('frontend.pages.details',compact('product','categorys','reviews','reviewCount'));
         }else{
             return redirect()->back();
         }
+    }
+
+    // Product Review
+    public function reviewStore(Request $request){
+        if(Auth::check()){
+            $reviews = new Reviews();
+            $reviews->user_id       = Auth::id();
+            $reviews->product_id    = $request->product_id;
+            $reviews->comment       = $request->comment;
+            $reviews->star          = $request->star;
+
+            $reviews->save();
+            return back()->with('success','Review Successfull');
+        }else{
+            return redirect()->route('login')->with('success','Login First , Then Review Continew');
+        }
+        
     }
 
     // checkout page

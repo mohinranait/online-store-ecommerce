@@ -4,6 +4,8 @@
                 					<a href="#" class="sidebar-filter-clear">Clean All</a>
                 				</div><!-- End .widget widget-clean -->
 
+
+
                 				<div class="widget widget-collapsible">
     								<h3 class="widget-title">
 									    <a data-toggle="collapse" href="#widget-1" role="button" aria-expanded="true" aria-controls="widget-1">
@@ -19,8 +21,8 @@
 												@php $totlaProduct =  App\Models\Product::where('cat_id', $cCat->id)->count()  @endphp
 												<div class="filter-item">
 													<div class="custom-control custom-checkbox">
-														<input type="checkbox" class="custom-control-input" id="cat-1">
-														<label class="custom-control-label" for="cat-1">{{$cCat->name}}</label>
+														<input type="checkbox" class="custom-control-input" id="{{$cCat->id}}">
+														<label class="custom-control-label" for="{{$cCat->id}}">{{$cCat->name}}</label>
 													</div><!-- End .custom-checkbox -->
 													<span class="item-count">{{$totlaProduct}}</span>
 												</div><!-- End .filter-item -->

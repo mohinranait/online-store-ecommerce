@@ -31,48 +31,6 @@ class frontUserController extends Controller
        return view('frontend.pages.customer.dashboard',compact('divisions','orders','districts','cuntrys','cards'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
 
     /**
      * Update the specified resource in storage.
@@ -103,6 +61,16 @@ class frontUserController extends Controller
         $users->save();
         return redirect()->route('user.dashboard')->with('success','Profile Update');
        
+    }
+
+
+    public function invoce( $id){
+       
+        $invoice = Order::find($id);
+        if(!empty($invoice)){
+            $invoiceItems = Card::orderby('id','desc')->where('order_id', $invoice->id)->get();
+            return view('frontend.pages.customer.invoice',compact('invoice','invoiceItems'));
+        }
     }
 
     /**

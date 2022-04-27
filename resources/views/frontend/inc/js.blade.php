@@ -53,3 +53,31 @@
         }, toastr.warning("{{ Session::get('delete') }}");
       @endif
     </script>
+
+
+<script>
+  // $(document).ready(function(){
+
+  // })
+
+  $("#division_id").change(function(){
+
+    var division = $("#division_id").val();
+
+
+    $('#districtname').html("");
+    var option = "";
+
+    $.get( "http://127.0.0.1:8000/get-district/" + division , function( value ) {
+
+      value = JSON.parse(value);
+      value.forEach(function(element){
+        option += "<option value'" + element.id + "'>" + element.name + " </option>"
+      })
+
+      $('#districtname').html(option);
+
+    });
+    
+  })
+</script>

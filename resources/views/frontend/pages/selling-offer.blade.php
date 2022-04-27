@@ -109,6 +109,7 @@
 														@else
 														<input type="hidden" name='unite_price' value="{{$product->regularprice}}">
 														@endif
+														<input type="hidden" name="product_qty" value="1">
 														<button type='submit'  class="btn-product btn-cart  " style='border:transparent; width:100%; display:inline-block;background:#0363cd; padding:12px 0 ;font-size:16px;color:white;'>add to cart</button>
 													</form>
                                                 </div><!-- End .product-action -->

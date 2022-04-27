@@ -111,6 +111,7 @@
 														@else
 														<input type="hidden" name='unite_price' value="{{$product->regularprice}}">
 														@endif
+														<input type="hidden" name="product_qty" value="1">
 														<button type='submit'  class="btn-product btn-cart  " style='border:transparent; width:100%; display:inline-block;'><span>add to cart</span></button>
 													</form>
                                                 </div><!-- End .product-action -->
@@ -132,10 +133,14 @@
 													@endif
                                                 </div><!-- End .product-price -->
                                                 <div class="ratings-container">
-                                                    <div class="ratings">
-                                                        <div class="ratings-val" style="width: 20%;"></div><!-- End .ratings-val -->
+                                                    <div class="">
+														<span style="font-size:17px;color:yellow;">&starf;</span>
+														<span style="font-size:17px;color:yellow;">&starf;</span>
+														<span style="font-size:17px;color:yellow;">&starf;</span>
+														<span style="font-size:17px;color:yellow;">&starf;</span>
+														<span style="font-size:17px;color:yellow;">&starf;</span>
                                                     </div><!-- End .ratings -->
-                                                    <span class="ratings-text">( 2 Reviews )</span>
+                                                    <span class="ratings-text">( {{$product->review->count()}} Reviews )</span>
                                                 </div><!-- End .rating-container -->
 
                                                
@@ -154,20 +159,7 @@
 
                 			<nav aria-label="Page navigation">
 							    <ul class="pagination justify-content-center">
-							        <li class="page-item disabled">
-							            <a class="page-link page-link-prev" href="#" aria-label="Previous" tabindex="-1" aria-disabled="true">
-							                <span aria-hidden="true"><i class="icon-long-arrow-left"></i></span>Prev
-							            </a>
-							        </li>
-							        <li class="page-item active" aria-current="page"><a class="page-link" href="#">1</a></li>
-							        <li class="page-item"><a class="page-link" href="#">2</a></li>
-							        <li class="page-item"><a class="page-link" href="#">3</a></li>
-							        <li class="page-item-total">of 6</li>
-							        <li class="page-item">
-							            <a class="page-link page-link-next" href="#" aria-label="Next">
-							                Next <span aria-hidden="true"><i class="icon-long-arrow-right"></i></span>
-							            </a>
-							        </li>
+							       {{$products->links('pagination::bootstrap-4')}}
 							    </ul>
 							</nav>
                 		</div><!-- End .col-lg-9 -->
