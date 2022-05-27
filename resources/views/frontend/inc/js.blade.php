@@ -63,8 +63,6 @@
   $("#division_id").change(function(){
 
     var division = $("#division_id").val();
-
-
     $('#districtname').html("");
     var option = "";
 
@@ -74,9 +72,7 @@
       value.forEach(function(element){
         option += "<option value'" + element.id + "'>" + element.name + " </option>"
       })
-
       $('#districtname').html(option);
-
     });
     
   })

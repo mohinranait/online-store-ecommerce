@@ -4,7 +4,7 @@
 
 @section('content')
 
-            <main class="main">
+        <main class="main">
             <nav aria-label="breadcrumb" class="breadcrumb-nav border-0 mb-0">
                 <div class="container d-flex align-items-center">
                     <ol class="breadcrumb">
@@ -225,34 +225,34 @@
                                             @foreach($reviews as $review)
                                             <div class="review">
                                                 <div class="row no-gutters">
-    <div class="col-auto">
-        <h4><a href="#">{{$review->user->name}}</a></h4>
-        <div class="ratings-container">
-            <div class="">
-               @if($review->star == 1)
-               <span style="font-size:17px;color:yellow;">&starf;</span>
-               <span style="font-size:17px;color:yellow;">&starf;</span>
-               <span style="font-size:17px;color:yellow;">&starf;</span>
-               @elseif($review->star == 3)
-               <span style="font-size:17px;color:yellow;">&starf;</span>
-               <span style="font-size:17px;color:yellow;">&starf;</span>
-               <span style="font-size:17px;color:yellow;">&starf;</span>
-               @elseif($review->star == 4)
-               <span style="font-size:17px;color:yellow;">&starf;</span>
-               <span style="font-size:17px;color:yellow;">&starf;</span>
-               <span style="font-size:17px;color:yellow;">&starf;</span>
-               <span style="font-size:17px;color:yellow;">&starf;</span>
-               @else
-               <span style="font-size:17px;color:yellow;">&starf;</span>
-               <span style="font-size:17px;color:yellow;">&starf;</span>
-               <span style="font-size:17px;color:yellow;">&starf;</span>
-               <span style="font-size:17px;color:yellow;">&starf;</span>
-               <span style="font-size:17px;color:yellow;">&starf;</span>
-               @endif
-            </div><!-- End .ratings -->
-        </div><!-- End .rating-container -->
-      
-    </div><!-- End .col -->
+                                                    <div class="col-auto">
+                                                        <h4><a href="#">{{$review->user->name}}</a></h4>
+                                                        <div class="ratings-container">
+                                                            <div class="">
+                                                            @if($review->star == 1)
+                                                            <span style="font-size:17px;color:yellow;">&starf;</span>
+                                                            <span style="font-size:17px;color:yellow;">&starf;</span>
+                                                            <span style="font-size:17px;color:yellow;">&starf;</span>
+                                                            @elseif($review->star == 3)
+                                                            <span style="font-size:17px;color:yellow;">&starf;</span>
+                                                            <span style="font-size:17px;color:yellow;">&starf;</span>
+                                                            <span style="font-size:17px;color:yellow;">&starf;</span>
+                                                            @elseif($review->star == 4)
+                                                            <span style="font-size:17px;color:yellow;">&starf;</span>
+                                                            <span style="font-size:17px;color:yellow;">&starf;</span>
+                                                            <span style="font-size:17px;color:yellow;">&starf;</span>
+                                                            <span style="font-size:17px;color:yellow;">&starf;</span>
+                                                            @else
+                                                            <span style="font-size:17px;color:yellow;">&starf;</span>
+                                                            <span style="font-size:17px;color:yellow;">&starf;</span>
+                                                            <span style="font-size:17px;color:yellow;">&starf;</span>
+                                                            <span style="font-size:17px;color:yellow;">&starf;</span>
+                                                            <span style="font-size:17px;color:yellow;">&starf;</span>
+                                                            @endif
+                                                            </div><!-- End .ratings -->
+                                                        </div><!-- End .rating-container -->
+                                                    
+                                                    </div><!-- End .col -->
                                                     <div class="col">
                                                         
 

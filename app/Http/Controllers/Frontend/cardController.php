@@ -35,29 +35,27 @@ class cardController extends Controller
     public function store(Request $request)
     {
         if( Auth::check() ){
-            $card = Card::where('user_id', Auth::user()->id)->where("product_id" , $request->product_id)->first();
+            $card = Card::where('user_id', Auth::user()->id)->where("product_id" , $request->product_id)->where('order_id' , NULL)->first();
         }
-        $card = Card::where('ip_address', request()->ip())->where('product_id', $request->product_id)->first();
+        $card = Card::where('ip_address', request()->ip())->where('product_id', $request->product_id)->where('order_id' , NULL)->first();
 
         if(!empty($card)){
-            if( empty(Card::where('order_id',null))){
-                $card->increment('product_qty');
-                return redirect()->back();
-            }else{
-                $card = new Card();
-                if( Auth::check()){
-                    $card->user_id  = Auth::user()->id;
-                }
-                $card->ip_address   = request()->ip();
-                $card->unite_price  = $request->unite_price;
-                $card->product_id   = $request->product_id;
-                $card->product_qty  = $request->product_qty;
-                $card->save();
-    
-                return redirect()->back();
-            }
+            
+            $card->increment('product_qty');
+            return redirect()->back();
+            
         }else{
-            return redirect()->route('login')->with('success','Login First, Then Add to card');
+            $card = new Card();
+            if( Auth::check()){
+                $card->user_id  = Auth::user()->id;
+            }
+            $card->ip_address   = request()->ip();
+            $card->unite_price  = $request->unite_price;
+            $card->product_id   = $request->product_id;
+            $card->product_qty  = $request->product_qty;
+            $card->save();
+            return redirect()->back();
+
         }
     }
 
